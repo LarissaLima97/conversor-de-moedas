@@ -1,0 +1,16 @@
+:root {
+    --color-first:#2d6073;
+    --color-second:#65b8a6;
+    --color-third:#b5e8c3;
+    --color-fourth:#f0f7da;
+   
+}
+
+body {
+    background-color: var(--color-first);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, p, span, input, button {
+    font-family: 'Roboto', sans-serif;
+}
