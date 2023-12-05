@@ -4,11 +4,12 @@ import { Box } from './components/Box';
 import { Input } from './components/Input';
 import { Header } from './components/Header';
 import { Label } from './components/Label';
-import { Select } from './components/Select';
+import { DropDown } from './components/DropDown';
+import { Button } from './components/Button';
 
 function App() {
   let arr: string[] = [];
-  arr = ['Oi', 'dois', 'três']; 
+  arr = ['BRL', 'USD', 'EUR']; 
   return (
     <div className="App">
       <Box>
@@ -19,20 +20,21 @@ function App() {
         </Label>
         <Label>
           De
-          <Select>
+          <DropDown>
             {arr.map(item => (
               <option>{item}</option>
             ))}
-          </Select>
+          </DropDown>
         </Label>
         <Label>
           Para
-          <Select>
+          <DropDown>
             {arr.map(item => (
               <option>{item}</option>
             ))}
-          </Select>
+          </DropDown>
         </Label>
+        <Button>Coverter</Button>
       </Box>
     </div>
   );
