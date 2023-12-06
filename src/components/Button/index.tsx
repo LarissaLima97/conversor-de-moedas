@@ -2,11 +2,12 @@ import { ReactNode } from 'react'
 import './styles.scss'
 
 interface Props {
-    children: ReactNode
+    children: ReactNode;
+    onClick: any;
 }
 
-export function Button ({children}:Props) {
+export function Button (props:Props) {
     return(
-            <button className='button'>{children}</button>
+            <button className='button' onClick={props.onClick }>{props.children}</button>
     )
 }
