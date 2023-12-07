@@ -9,18 +9,26 @@ function MultiplyValue (userValue: number , coinValue: number) {
 } 
 
 
-export const currencyInfo = async (currencyFrom: string, currencyTo: string) => {
+const currencyInfo = async (currencyFrom: string, currencyTo: string) => {
     const res = await (
         axios.get(
             `${BASE_URL}${currencyFrom}-${currencyTo}`
         )
     )
-    console.log(res.data)
     return res.data;
 }
 
-/**
- * TODO: 
- * Criar uma função para extrair o valor da conversão 
- * Criar uma função que retorne o valor convertido e multiplicado 
- */
+async function extractConversionValue (currencyFrom: string, currencyTo: string) {
+    const res = await (currencyInfo(currencyFrom,currencyTo));
+    const concatCurrencies = currencyFrom.concat(currencyTo);
+
+    return res[concatCurrencies].high;
+}
+
+export const convertValue = async (currencyFrom: string, currencyTo: string, userValue:  number) => {
+    const extractConversion = await(extractConversionValue(currencyFrom, currencyTo));
+    const convertValue = MultiplyValue(userValue, extractConversion);
+
+    return convertValue;
+    
+}
