@@ -6,7 +6,7 @@ import { Header } from './components/Header';
 import { Label } from './components/Label';
 import { DropDown } from './components/DropDown';
 import { Button } from './components/Button';
-import {currencyInfo} from './services/api';
+import {convertValue} from './services/api';
 
 function App() {
   let arr: string[] = [];
@@ -35,7 +35,7 @@ function App() {
             ))}
           </DropDown>
         </Label>
-        <Button onClick={()=> currencyInfo('BRL', 'USD')}>Converter</Button>
+        <Button onClick={()=> convertValue('USD', 'BRL',30)}>Converter</Button>
       </Box>
     </div>
   );
