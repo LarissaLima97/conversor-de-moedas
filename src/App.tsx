@@ -19,11 +19,23 @@ function App() {
 
   });
 
+  const [resultValue, setResultValue] = useState('');
+
   const handleChange = (e:React.FormEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;
     setStateValue({...stateValue, 
       [e.currentTarget.name]: value
     });
+  }
+
+  const handleResult = async (currencyFrom: string, currencyTo: string, userValue: number) =>{
+    if(currencyFrom === '' || currencyTo === '' || userValue === 0) {
+      alert('Todos os campos precisam ser preenchidos!')
+    }
+    else {
+      const res = await(convertValue(currencyFrom, currencyTo, userValue));
+      setResultValue(res);
+    }
   }
   return (
     <div className="App">
@@ -35,7 +47,6 @@ function App() {
             name="userValue"
             value={stateValue.userValue}
             onChange={handleChange}
-            
           />
         </Label>
         <Label>
@@ -62,7 +73,8 @@ function App() {
             ))}
           </DropDown>
         </Label>
-        <Button onClick={()=> convertValue(stateValue.currencyFrom, stateValue.currencyTo,stateValue.userValue)}>Converter</Button>
+        <Button onClick={()=> handleResult(stateValue.currencyFrom, stateValue.currencyTo, stateValue.userValue)}>Converter</Button>
+        <Label>{resultValue}</Label>
       </Box>
     </div>
   );
