@@ -7,6 +7,7 @@ import { Label } from './components/Label';
 import { DropDown } from './components/DropDown';
 import { Button } from './components/Button';
 import {convertValue} from './services/api';
+import { ResultDisplay } from './components/ResultDisplay';
 
 function App() {
   let arr: string[] = [];
@@ -74,7 +75,9 @@ function App() {
           </DropDown>
         </Label>
         <Button onClick={()=> handleResult(stateValue.currencyFrom, stateValue.currencyTo, stateValue.userValue)}>Converter</Button>
-        <Label>{resultValue}</Label>
+        <ResultDisplay>
+          {resultValue}
+        </ResultDisplay>
       </Box>
     </div>
   );
