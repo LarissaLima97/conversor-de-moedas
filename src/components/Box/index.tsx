@@ -5,10 +5,10 @@ interface Props {
     children?: ReactNode;
 }
 
-export function Box ({children}:Props) {
+export function Box (props:Props) {
   return(
     <div className='box'>
-        {children}
+        {props.children}
     </div>
   );
 }

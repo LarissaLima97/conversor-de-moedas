@@ -2,11 +2,11 @@ import { ReactNode } from 'react'
 import './styles.scss'
 
 interface Props {
-    children: ReactNode
+    children: ReactNode;
 }
 
-export function Label ({children}:Props) {
+export function Label (props:Props) {
     return(
-        <label className='label'>{children}</label>
+        <label className='label'>{props.children}</label>
     )
 }

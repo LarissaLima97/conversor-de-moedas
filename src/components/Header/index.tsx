@@ -5,10 +5,10 @@ interface Props {
     children: ReactNode
 }
 
-export function Header ({children}:Props) {
+export function Header (props: Props) {
     return(
         <header className='header'>
-            <h1>{children}</h1>
+            <h1>{props.children}</h1>
         </header>
     )
 }
