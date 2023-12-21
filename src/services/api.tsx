@@ -8,7 +8,6 @@ function MultiplyValue (userValue: number , coinValue: number) {
     return (userValue * coinValue).toFixed(2); 
 } 
 
-
 const currencyInfo = async (currencyFrom: string, currencyTo: string) => {
     const res = await (
         axios.get(
@@ -29,6 +28,5 @@ export const convertValue = async (currencyFrom: string, currencyTo: string, use
     const extractConversion = await(extractConversionValue(currencyFrom, currencyTo));
     const convertValue = MultiplyValue(userValue, extractConversion);
 
-    return convertValue;
-    
+    return Number(convertValue);
 }

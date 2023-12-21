@@ -27,15 +27,24 @@ function App() {
     setStateValue({...stateValue, 
       [e.currentTarget.name]: value
     });
-  }
+  };
 
+  const mountCoinSymbol = (currencyTo: string) => {
+    const symbols: Record<string, string>  = {
+      'BRL': 'R$', 
+      'USD': '$', 
+      'EUR': '€'
+    }
+    return symbols[currencyTo];
+  };
   const handleResult = async (currencyFrom: string, currencyTo: string, userValue: number) =>{
+    const formattedUserValue = userValue.toString().replace(',', '.');
     if(currencyFrom === '' || currencyTo === '' || userValue === 0) {
       alert('Todos os campos precisam ser preenchidos!')
     }
     else {
-      const res = await(convertValue(currencyFrom, currencyTo, userValue));
-      setResultValue(res);
+      const res = await(convertValue(currencyFrom, currencyTo, Number(formattedUserValue)));
+      setResultValue(mountCoinSymbol(currencyTo) + res);
     }
   }
   return (
