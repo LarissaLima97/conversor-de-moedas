@@ -2,6 +2,7 @@
   "name": "conversor-de-moedas",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://larissalima97.github.io/conversor-de-moedas",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +46,7 @@
   "devDependencies": {
     "axios": "^1.4.0",
     "eslint": "^8.46.0",
+    "gh-pages": "^6.1.1",
     "sass": "^1.64.2"
   }
 }
